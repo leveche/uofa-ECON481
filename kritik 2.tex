@@ -1,0 +1,110 @@
+\documentclass{homework}
+\author{Group 4}
+\class{ECON 481: Advanced Micro Theory}
+\date{\today}
+\title{Modelling family planning decisions at extensive and intensive margins}
+
+\graphicspath{{./media/}}
+
+\begin{document} \maketitle
+
+\section{Introduction}
+
+
+The decision to have children is a complicated one, which involves not only the accounting cost of raising children but also the economic cost of forgoing possible income, health risks, career impairment, etc. The value of having children against the opportunity cost is different for different people. If the altruistic value (personal utility) of having a child is not greater than the cost then one wouldn't choose to have any children. Once one decides to have a child we can also see the average cost of each child going down. The purpose of this model is to answer whether a couple would decide to have children and if yes, how many. This model would also be able to show the effects of different policies making it less or more expensive to raise a child.
+
+The average cost can go down for a number of reasons. Once someone is already out of the workforce then the decision to prolong the gap costs less. It can also be less because costs such as child-proofing the house, cot, baby clothes, car seat, etc. are already there. Other times in some countries which offer parental leave can be shared with the husband to care for the infant and later home care leave for an older child. In many countries this is paid along with paid leave for the father. Costs can be lowered through tax benefits, beneficial child rearing policies such as subsidized day care, after school care, pre-schools, etc. In our model we lump-summed these cost saving measures into k.
+
+When making a model about decisions, we also have to think about the opportunity cost of taking a break in the prime of their careers or the possible career trajectory loss. To show the benefit of not taking any time off, we included a parameter $\Delta>0$, which would be the bonus or benefit of not taking a break. To include influences such as culture, religious belief, personal desire, etc. which affects one's decision to want children we included α, which would increase with the influence increasing to make the couple want children. This is an important factor in some cases where monetary benefits don’t have a response.
+
+We have made a few assumptions and simplifications while making our model. We haven’t modeled the cost differently for the two members of a couple. We assumed that both members are in the workforce or want to work. As is usual, we take the utility of unspent money to be zero, so we assume no bequests.
+
+
+\section{Formal Model}
+We are supposing that family is faced with the choice between an aggregate consumption good $C$ and children $K$ (`kids'), their affinity towards having children is $\alpha\in(0,1)$, and the consumption good is the numeraire while the cost of raising a child is $k>0$.
+
+Start with a modified Cobb-Douglas utility function \[U=C^{1-\alpha} (K+\delta(K))^\alpha\]
+where we define $\delta(K) := 1$ if $K=0$, and zero otherwise.
+
+We also modify the budget restriction, by introducing a bonus for having no children. The rationale here is that the opportunity cost of forgoing high-paying, competitive careers takes effect at the very first child a family decide to have. We can think of the money endowment $M$ as the lifetime earnings in the `low-paying' jobs, while the high-paying careers yield additional amount $\Delta$.
+
+Thus, we have for the budget \[M (1+\Delta (\delta(K))) = C + kK \]
+
+As usual, we have the Lagrangian \[\mathcal{L} = U - \lambda (M (1+\Delta (\delta(K))) - C + kK )\]
+and the first-order conditions, on $K>0$ (where the Lagrangian is differentiable):
+
+\[ \mathcal{L}_C = (1-\alpha)\frac{U}{C} - \lambda = 0 = \mathcal{L}_K = \alpha\frac{U}{K} - \lambda kK\]
+
+From which, again as usual, we have \[\frac{U}{\lambda} = \frac{C}{1-\alpha} = \frac{kK}{\alpha} \]
+
+Thus
+\begin{align}
+C = \frac{1-\alpha}{\alpha} kK  & & M = C+kK = \frac{kK}{\alpha} \\
+C = M(1-\alpha) & & K = \alpha\frac{M}{k}
+\end{align}
+
+The utility, \emph{provided the family decided to have any children}, is \[\frac{U_{K>0}}{M} = (1-\alpha)^{1-\alpha} \left(\frac{\alpha}{k}\right)^\alpha\]
+
+If the decision was to not have any children at all, then of course $K=0, C=M(1+\Delta)$ and
+\[\frac{U_{K=0}}{M} = \frac{(1+\Delta)^{1-\alpha}}{M^\alpha}\]
+
+The couple will decide to have a child if $U_{K>0} > U_{K=0}$, i.e.
+\[ (1-\alpha)^{1-\alpha}\times\left(\frac{\alpha}{k}\right)^\alpha > \frac{(1+\Delta)^{1-\alpha}}{M^\alpha} \]
+
+Rearranging, we obtain \begin{equation}
+Z := (1-\alpha)\left(\alpha\frac{M}{k}\right)^\frac{\alpha}{1-\alpha} > 1+\Delta
+\end{equation}
+
+Note that on the left hand side of the inequality we have an expression involving the `low-paying' money endowment, normalized by the cost of raising a child, and the affinity towards having children, while the right-hand side only includes the opportunity cost $\Delta$. We introduce the variable $m:=\frac{M}{k}$ since the extensive decision only involves this ratio, not the variables separately. We also make an assumption that $m>\frac{1}{1-\alpha}>1$, i.e. even a low income is sufficient to raise at least a single child.
+
+\section{Policy Choice}
+
+Since $M$ is determined by the job market and can hardly be affected by policy, we will treat it as fixed. Policy \emph{could} lower $k$ --- effectively increasing $m$ --- by offering tax benefits per child. A policy that awards a tax discount for the first child will effectively lower $\Delta$. We therefore treat $m$ and $\Delta$ as exogenous parameters that are within the gift of a policymaker. The affinity parameter $\alpha$, on the other hand, we'll treat as intrinsic to human nature. The latter assumption should not be taken too broadly; the propensity to having children can be decomposed into truly intrinsic, biological drive, and a cold calculation of having support in the old age --- the latter consideration being less relevant in the industrialized nations, which tend to have both old-age pensions and high $\Delta$.
+
+The above notice notwithstanding, let us explore dependency of the left-hand side (which we call $Z$) on the affinity parameter $\alpha$. Simple first-order condition $\partial_\alpha Z=0$ gives that $Z$ attains a minimum at $\alpha^* = \frac{1}{m}$. Further, it evident from Figure \ref{Zpic}, a solution is only possible if the affinity large enough: $\alpha > \frac{1}{m}$ since otherwise the left-hand side is less than one. We also see that $Z$ grows rapidly as $\alpha\to1$.
+
+\fig[0.8]{Z.png}{$Z$ vs $\alpha$ }{Zpic}
+
+Now we explore the effect of policy of tax credit per child. Let us start with tax credit per child, i.e. increasing $m$. Clearly $Z_m = \frac{\alpha}{1-\alpha} \cdot \frac{Z}{m}$, which we plotted in Figure \ref{Zmpic}. We see that this policy \emph{has almost no effect} unless $\alpha$ is very high.
+To compare the effects of policy of trying to reduce $\Delta$ vs increase $m$, we express a break-even low income $m^*$ as a function of $\alpha$ and opportunity cost $\Delta$:
+
+\fig[0.8]{Zm.png}{$\partial_m Z$ vs $\alpha$ }{Zmpic}
+
+\begin{equation}
+    m^* = \alpha^{-1} \left(\frac{1+\Delta}{1-\alpha}\right)^\frac{1-\alpha}{\alpha}
+\end{equation}
+
+So that \begin{equation}
+    \partial_\Delta m^* = \frac{1}{\alpha^2(1-\alpha)^{1/\alpha}} \times (1+\Delta)^\frac{1-2\alpha}{\alpha}
+\end{equation}
+
+Again, let us explore the sensitivity of the above expression to $\alpha$. From Figure \ref{mstarpic} it is evident that $m^*_\Delta \gg 1$ for all allowable $\alpha$. This should also be intuitively clear from Figure \ref{Zpic}, where we see that for large $\alpha$, a slight change in $\alpha$ leads to a large change in $1+\Delta = Z$
+
+We conclude that a policy aimed at reducing $\Delta$ - e.g. a lump sum tax rebate for the first child, of heavily universal child care program starting from infancy, \emph{is much more effective at promoting the extensive decision} of having children in the first place.
+
+\fig[0.4]{mstard1.png, mstard2.png}{$\partial_\Delta m^*$ vs $\alpha$. Right pane is the zoom of the left one to the relevant range of $\alpha$ }{mstarpic}.
+
+Even though we agreed to treat $\alpha$ as a fixed exogenous parameter that will not be used for comparative statics, it is important to have examined the sensitivities as above, if for no other reason then as a sanity check for the model.
+
+We note that $\alpha\approx0.8$ is a critical value, above which the responses $Z, Z_m, m^*_\Delta$ become extremely rapid. Now let us fix $\alpha$ to that value, and perform comparative statics with respect to $m$ and $\Delta$:
+
+\begin{equation}
+    \partial_\Delta m^* |_{\alpha = 0.8} = \frac{25\sqrt{5}}{16}\times(1+\Delta)^{-3/4}
+\end{equation}
+
+\section{Conclusions}
+
+We explored a simplistic model that yields a threshold value of income, relative to the cost of raising a child and to the opportunity cost of not interrupting one's career, below which the optimal decision is to not have any children at all. Once this threshold has been cleared, the number of children is given by the usual relations from Cobb-Douglas utility and fixed money endowment.
+
+We found that high affinity towards having children is a prerequisite to clearing the no-children threshold.
+
+With respect to policy, we found that the threshold is much more sensitive to reducing the foregone income from having children at all, and almost insensitive with respect to attempting to reduce the marginal cost of raising the next child. Note that the latter is Canada's tax policy as embodied in the Child Care Benefit (CCB). Furthermore, the CCB, which used to be called Universal Child Care benefit, now has an earnings cap; effectively lowering $m$ in our model for high values of $\Delta$. In the framework of this model, this is \emph{the wrong thing to do}.
+
+For empirical data, let us refer to \cite{paper1}, which gives the values\footnote{note that the paper does not use our model, and we are interpreting their results somewhat freely; in particular their values are closer to $\frac{M(1+\Delta)}{k}$ rather than $\frac{M}{k}$} of $m$ varying from the high of $\frac{1}{7.9\%}$ for Spain --- which does have high fertility rate --- versus the low of $\frac{1}{45\%}$ for England. For comparison, Japan has $m=\frac{1}{22.7\%}$, with almost negligible population growth, although the paper also notes high $\Delta$ and relatively low $\alpha$ for Japan.
+Our country, Canada, is quoted to have $m=\frac{1}{31.2\%}$, definitely on the low side. It does appear that Canada is heavily dependent on immigration, and not fertility, for population growth.
+
+% citations
+\bibliographystyle{plain}
+\bibliography{citations}
+
+\end{document}
