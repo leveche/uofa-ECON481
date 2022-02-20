@@ -1,0 +1,53 @@
+#+TITLE: Kritik 2
+
+Objective: To design a model focused on understanding decision-making on the
+extensive and intensive margins.
+
+Instruction:
+
+When economists talk about the extensive margin, they are referring to a binary
+decision. For instance, the extensive margin of university attendance refers to
+whether or not an individual attends university. The intensive margin refers to
+how much of something an individual chooses. Conditional on choosing to consume
+apples, how many do you consumer? Conditional on choosing to attend university,
+how many years do you attend? As the examples make clear, the extensive margin
+is the first-stage in a choice problem, and in many cases it is the margin that
+public policy aims to affect. For instance, electric vehicle subsidies aim to
+influence the binary decision about whether or not one purchases an electric
+vehicle and not how much one drives it (although some policies do subsidize
+charging, which would influence the intensive margin).
+
+A problem faced by many developed countries is low birth rates. Low birth rates
+will contribute to declines in national productivity (ceteris paribus, fewer
+workers will produce less) and difficulties in funding social security programs
+like the CPP. While facilitating higher rates of immigration is a strategy for
+compensating for low birth rates in countries like Canada with long histories of
+immigration, other countries have focused on encouraging more families to have
+children.
+
+In this assignment, I want you to explicitly model the decision to have children
+(call it the family formation decision). Your model should capture both the
+extensive margin (whether or not to have children) and the intensive margin (how
+many children to have). You should then discuss the effects of possible policies
+(such as the EITC or lump-sum child subsidies often called child tax credits) on
+the family formation decision. Key features of the EITC are that it subsidizes
+work up to a certain income level for families with children.
+
+Your model should allow families to differ in their preferences over children
+and market goods (i.e., think of a model in which household consume children and
+market goods) and in their labor market opportunities (I have a model in mind,
+but I don't plan to be more specific). Then discuss how these preferences and
+labor market opportunities would interact with different policies (EITC-like
+policies and child tax credits). That is, what predictions about the behaviors
+of different households would the model offer? Do the policies differ in their
+effects on the extensive and intensive margins of the family formation decision?
+Are some policies likely to prompt some families to have children that otherwise
+would have had none? Are policies likely to encourage families to have more
+children than they otherwise would? If you were recommending policies to
+encourage family formation and higher birth rates, what would you ultimately
+recommend?
+
+To keep your life simple, assume all households are two-parent households and
+that the decision is made at the household level. Remember that a modeler is
+free to make further simplifying assumptions. What you assume depends in large
+part on what you are trying to achieve with your model.
