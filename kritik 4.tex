@@ -1,0 +1,77 @@
+\documentclass{homework}
+\usepackage{longtable}
+\class{ECON 481: Advanced Micro Theory}
+\date{\today}
+\title{Some Economic Models of Public Secondary Education}
+
+\graphicspath{{./media/}}
+
+\begin{document} \maketitle
+
+\section{Introduction}
+We present a rudimentary model to use as a framework for reason about secondary education.
+
+\section{Production}
+
+Schooling means different things to different people.\footnote{Perhaps the most striking feature of North American system, to someone from Europe, is the heavy emphasis on sports.} We will model this by setting the production function to be vector-valued. As an example, we could have
+\[ Y = (Y_d, Y_a, Y_p)^T\]
+
+\subsection{Daycare} In the above, $Y_d$, the bare minimum we'd all like the school system to deliver, is to provide a safe environment for children to stay while the parents are at work. If this results in socialization or extra-curricular activities, so much the better. It's reasonable to set 
+\[Y_d = Y_d(L,R,T)\]
+where $R$ is the capital stock of 'real estate', physical buildings to keep the hordes of screaming monsters contained during the day. As usual, $L$ denotes labor. While in actual day care the ratio of staff to students is provincially mandated, school districts seem to be able to get away with any class size they claim as reasonable. Many school districts provide bussing service $T$.
+
+\subsection{Academic Attainment.} Further, we have \[Y_a = Y_a(Z_a L, S)\] denotes the `academic' part of the production. We recognize that there are two principal approaches to `learning' as an economic activity; one is the `human capital' theory, which posits that $Y_a$ is the actual \emph{useful} knowledge imparted on the students, which makes them more productive in the workplace, and is therefore worthy of government subsidies. The other, more cynical approach is the pure `signalling' theory, whereby the academic performance is merely a way for employers to differentiate between the job seekers' work ethic, and any usefulness of the skills learned while in school is merely a happy coincidence. Not surprisingly, in the signalling theory, the education is not worthy of government subsidies. Quite often, $Y_a$ is considered as a superposition of the two approaches: a high school diploma is useful both as a signal that the bearer has the patience and the wherewithal to regurgitate deposited knowledge, as well as an assurance that some useful skills have been acquired. We will tacitly assume $Y_a = \alpha Y_{signal} + \beta Y_{HC}$ but will not dwell in the exact determination of the weights.
+Note that the measurement of $Y_a$ is not trivial: traditionally, a performance on some standardized test is taken, but should a `value-add' approach be used to measure the school's contribution to the student achievement vs simply selecting the best students?
+As for the factors, the production of academic results needs labor input from both the teachers ($L$) as well as students ($S$). We omit physical capital stock from this component of production, neither buildings nor busses are strictly necessary for students to learn, while textbooks and learning aids are abundant and cheap.\footnote{`Textbooks are cheap' may seem a cruel jape, but one of the authors has gotten through UofA's entire catalogue of ECON courses using an old-edition textbook he pulled out of a garbage can, a couple of `India edition' books at bargain-basement prices, and nominally-free available resources. Textbooks only become expensive in the context of a requirement for a particular class, which supports the view that `signalling' theory of education dominates. In the setting of a public secondary education, we take $\beta$ to be small.} We also introduce the human capital $Z_a$ embodied in the faculty; the requirements to effectively teach e.g. math 35-1 class are greater than those for e.g. $4^{th}$ grade science.
+
+\subsection{Athletics} Another aspect is the achievement in the realm of athletics; \[ Y_p = Y_p(Z_pL,S_p,R)\]
+In the same spirit as before, $Z_p$ is the human capital of the coaches, $S_p$ students' effort expended in the gym, and we wouldn't be surprised to find $Y_p$ to be highly intensive in $R$.
+
+\section{Objective Function}
+We can suppose that in a democracy, the production output of a school district should reflect taxpayers' preferences for that district, resulting in the objective function of the form \[ U = Y\cdot \pi\]
+with $\pi = (\pi_d, \pi_a, \pi_p)^T$ the relative weights the median ratepayer\cite{lawton} places on the components of the production function. 
+
+Alternatively, We can make the following modifications: first, we expect $\pi_d$ to so large as to dwarf the remaining weights; we can scarcely imagine a parent who would be willing to trade their child's safety at school for e.g. better academic results. On the other hand, once $Y_d$ attains a threshold value - e.g. safe environment between 8:30 am and 3:30pm, there may not be a benefit for exceeding this performance.\footnote{there are a lot of nuances omitted here. First, there is certainly room for security theater: how much \emph{perceived} security should a school provide? In terms of raw hours of day care a school provides, there is certainly demand for extended day care at lower grades.}
+In other words, we will take the demand for $Y_d$ to be inelastic. We will also assume that a school district has to provide a minimum academic achievement $\bar{Y_a}$ of face sanctions from the province, but exceeding $\bar{Y_a}$ is only weakly rewarded.
+
+\section{Budget Restriction}
+As a first approximation, we can take the budget to be exogenously fixed by the collected property taxes $I$:
+\[I = rR + tT + wL\]
+Recall that the economic price of $R$ is the income generated from an alternative allocation, so should be equal to the going rental rate in the district. However, the school board may not be allowed to rent its buildings and fields out, in which case $r$ is the interest rate plus rate of depreciation. Note that we took the price of student input as nil: with child labor laws in place, there is no alternative use of a student's time with higher reward than learning, so the school district gets this input for free. 
+\subsection{Teachers' Unions} Price of labor $w$ is often negotiated with the union. We'll take the union's objective as to maximize the total income of its members. Note that if the school board is a monopsonist on the labor market for teachers, the union should be negotiating a wage floor up to the competitive equilibrium wage rate. In reality, the teacher's union often imposes not only wage minima but also seniority rules that govern layoffs as well as pay grades. In other words, unions often distort $Z_a$ to be based on time served rather than on some external metric. 
+
+\section{Comparative Statics.} We expect the coefficients of technical substitution to be as reflected in the tables below
+
+
+For $Y_d$, it is not unreasonable to take all factors as perfect complements:
+\begin{center}
+\begin{tabular}{c | c c c } 
+\textbf{$Y_d$}  & $L$ & $R$ & $T$ \\
+\hline
+$R$ & $\infty$ & & 0 \\
+$T$ & $\infty$ & $\infty$ &
+\end{tabular}
+\end{center}
+
+For $Y_a$, we can simplify the model if we take $S$ and $Z_a L$ as perfect substitutes, even though in reality it's doubtful if any amount of teacher's talent can compensate for a lack of industry in a student. 
+
+Given the considerations for the objective function we outlined above, we simplify the objective to
+\[U = Y_a = Y_a(Z_a L)\]
+i.e. only academic achievement matters, and the only input that the school board is at liberty to vary is the teacher's labor. Since the `real estate' outlays are fixed by the inelastic $Y_d$, and transportation costs are exogenous, the budget is reduced to $I - tT - rR =: \bar{I} = w L$.
+Thus, in this model there's hardly any freedom left for the school district: $L = \frac{\bar{I}}{w}$ and $U = Y_a (\frac{Z_a \bar{I}}{w})$
+
+\section{Efficiency}
+
+The entire track of the education production output is difficult to measure. We first need to observe Y, the education production output from three aspects: Daycare, Academic Attainment, and Athletics. We can set a standard test and give the score in three parts each year, and then we can get the total score for Y. Then, we can only analyze the proportion change in the expenditure to L, R, and T because the school districts have different budget constraints each year (typically increase I every year). So, we should define the optimal inputs for school districts as the proportion optimal choice between L, R, and T. We can then analyze the effect of an increase in L proportion expenditure on Y and draw a curve for that. We should then find the maximum slope point in the curve, where is the optimal input point for L. We can do the same things to R and L.
+
+The cost function of our simplified model is \[\bar{I} = \frac{w}{Z_a} Y_a^{-1}(U)\]
+Thus, to gauge the efficiency of a school district in converting taxpayer's money into academic attainment, we set up a regression along the lines of
+\[I = \beta_0 + \beta_1 rR + \beta_2 tT + \beta_3 \frac{w}{Z_a} Y_a + \epsilon \]
+
+The coefficient $\beta_3 \geq 1$ would indicate an efficent allocation of funds, while $\beta_0,\beta_1,\beta_2$ control for capital expenditures that are not directly involved in $Y_a$.
+
+% citations
+\bibliographystyle{plain}
+\bibliography{citations}
+
+\end{document}
