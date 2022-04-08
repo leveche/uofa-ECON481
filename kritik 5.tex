@@ -1,0 +1,92 @@
+\documentclass{homework}
+
+\usepackage{gnuplottex}
+
+\class{ECON 481: Advanced Micro Theory}
+\date{\today}
+\title{Inequality in Labor Compensation}
+
+\begin{document} \maketitle
+
+\section{Introduction}
+
+We will derive and investigate a model governing relative wages, under the assumption of exogenously prescribed ratio of the labor supplies. We consider a CES production, with the role of capital in general nonzero, although we make the simplification of capital-independent production when considering some aspects. The firms are price-takers and the competitive labor markets clear.
+
+\section{Model}
+
+Suppose the representative firm has a CES technology taking skilled labor $S$, unskilled labor $U$, and capital $K$ in the proportions $\alpha, \beta,$ and $1-\alpha-\beta$ respectively: \[Y^\rho = \alpha S^\rho + \beta U^\rho +  (1-\alpha-\beta)K^\rho\]
+Recall that the exponent $\rho$ is typically taken\footnote{e.g. the Inada conditions do not hold for $\rho\in(0,1]$, making these exponents questionable choices for macro analysis} $\rho\in(-\infty,0]$, with the elasticity of substitution $\sigma :=\frac{1}{1-\rho}$ decreasing as $\rho \to -\infty$; in other words, the two kinds of labor inputs behave more and as complements and less as substitutes as $\rho$ decreases.
+The marginal products are then \[w_S = \partial_S Y = \alpha\left(\frac{S}{Y}\right)^{\rho-1}, \quad w_U = \beta\left(\frac{U}{Y}\right)^{\rho-1} \]
+
+Therefore
+\[\frac{w_S}{w_U} = \frac{\alpha}{\beta}\left(\frac{S}{U}\right)^{\rho-1}, \quad \frac{S}{U} = \left(\frac{\beta w_S}{\alpha w_U}\right)^{\frac{1}{1-\rho}}\]
+
+Clearly, if $\frac{S}{U} =: \theta$ is exogenously fixed, and defining $\ln(\alpha/\beta) =: \eta$, the reaction of the relative wages to labor supply is given by \[\omega := \ln\left(\frac{w_S}{w_U}\right) = \ln\left(\frac{\alpha}{\beta}\right) + (\rho-1)\,\ln(\theta) = \eta - (1-\rho)\,\ln(\theta)\]
+% It hardly seems worthy of a mention that $\theta\in[0,1]$ while $\eta\in(-\infty,+\infty)$.
+Note that the Cobb-Douglas case corresponds to $\rho=0$. The case $\rho = 1$, which we agreed not to consider in detail, is the limiting case of perfect substitutes, and yields constant relative wages.
+
+\begin{center}
+\begin{gnuplot}[terminal=pdf]
+f(x) = 0.0 - log(x)
+g(x) = 0.0 - 5 * log(x)
+h(x) = -2 - log(x)
+
+set xrange [0:3]
+set yrange [-3:5]
+
+set ylabel "relative wages"
+set xlabel "relative labor supply"
+
+# Plot
+plot f(x) title "Cobb-Douglas, equal proportions" with lines, \
+   h(x) title "Cobb-Douglas, high weight of unskilled labor"  with lines ls 1 ps 2 lw 1 lt rgb "red", \
+   g(x) title "Elasticity of substitution = 0.2" with lines linestype 1
+\end{gnuplot}
+\end{center}
+
+\section{General Properties of the Reaction Curve}
+
+Note the relative equality of the two kind of wages holds at $\omega = 0$, which occurs at $\theta^*$ given by
+\[\frac{\alpha}{\beta} = \left(\theta^*\right)^{1-\rho}\]
+It is important to stress that the above expression is symmetric with replacing $\alpha$ with $\beta$ while also replacing $S$ with $U$; \textbf{our model does not place any a priori significance on skilled or unskilled labor other than their weights in the production function}. If the production is heavily dependent on the unskilled labor, then these workers will be the ones enjoying higher wages --- on the plot, this is given by $\omega$ decreasing past zero. In general, increasing the proportion of $\alpha$ relative to $\beta$ --- making production more skill-intensive --- shifts the reaction curve upwards, while decreasing $\alpha/\beta$ shifts the curve downwards.
+
+As expected, lower elasticity of substitution between skilled and unskilled labor ($\rho \to -\infty$) exacerbates the wage inequality; small deviations from $\theta^*$ cause larger swings in relative wages, resulting in a steeper reaction curve on the plot above.
+
+\section{Bridge to Empirical Observations}
+An indicator commonly used to measure equality is the Gini coefficient, which we derive in this section. First, we need to normalize the total workforce: $U+S = 1$, and since we'll be dealing with proportions of total income, we can take e.g. the unskilled wage as the numeraire, to simplify the algebra.\footnote{Note that the unearned income is absent from this derivation, effectively fixing $\alpha+\beta=1$. The distribution of unearned income is typically a major source of inequality in the real world, so this simplification should be treated with caution.} We thus have \[U = \frac{1}{1+\theta},\quad S = \frac{\theta}{1+\theta}\]
+The wage bills for the unskilled and skilled labor, respectively, setting $w_U=1$, are 
+\[W_U = \frac{1}{1+\theta}, \quad W_S = \frac{\alpha}{\beta}\cdot\frac{\theta^\rho}{1+\theta}\]
+The wages relative to the combined per capita wage bill --- which, in the absence of unearned income, is the entire yield in this economy -- are then written as
+\[\xi_U = \frac{1}{W_U + W_S} = \frac{1+\theta}{1+\frac{\alpha}{\beta}\theta^\rho},
+\quad \xi_S = (1+\theta) \frac{\frac{\alpha}{\beta}\theta^{\rho-1}}{1+\frac{\alpha}{\beta}\theta^\rho}\]
+As a sanity check, we see $\xi_U = \xi_S = 1$ at $\theta=\theta^*$.
+
+The Lorenz curve is piecewise linear: starting at zero, it rises at slope\footnote{we are taking $\alpha>\beta$ for definiteness here, this does not affect the generality} $\xi_U$ for the first $\frac{1}{1+\theta}$ of the population, attaining the height of $\xi_U/(1+\theta)$ above the $x$ axis, so that the swept area under this triangle is $B_U = \frac{1}{2}\cdot\frac{1}{1+\theta}\cdot\frac{\xi}{1+\theta} = \frac{\xi_U}{2(1+\theta)^2}$. From then on, the Lorenz curve rises at slope $\xi_S$ for the next $\frac{\theta}{1+\theta}$ of the population, enclosing the area $B_S = \frac{1}{2}\frac{\theta}{1+\theta}\cdot(1+\frac{\alpha}{\beta}\theta^\rho)$ under the resulting trapezium. The Gini coefficient, after some manipulation, comes out to
+\[ G = \frac{1}{2}\cdot\frac{\theta}{1+\theta}\cdot\frac{\frac{\alpha}{\beta}\theta^{\rho-1}-1}{\frac{\alpha}{\beta}\theta^\rho+1} \]
+
+\section{Some Examples}
+\subsection{Increases in university attendance by members of the “baby boom” generation who came of age in the late 1960s and 1970s.} Increasing $S/U =:\theta$, we move along a reaction curve to the right, decreasing the premium of skilled labor relative to unskilled. If the production function does not change to become more skill-intensive, we may observe a situation where trades are better paid than academics.\footnote{Trades generally \emph{are} skilled labor, in this comparison we are only considering the shorter time it takes to train e.g. a plumber, most of it on the job, versus training a university graduate, with almost no time on the job.}
+
+\subsection{Increases in import competition in manufacturing sectors.}
+The answer to this section depends entirely on the nature of the imports. If an economy imports raw materials, or goods early in the value-added chain, such as e.g. rolled steel sheets to be used for auto production, the coefficient $\beta$ decreases relative to $\alpha$, the reaction curve shifts upwards, placing premium on skilled labor. On the other hand, importing e.g. microchips, which embody technical progress, for the same auto production by simply attaching the chip in place, suppresses $\alpha$, the curve shifts downwards, decreasing the premium on the skilled labor.
+
+\subsection{Skill-biased technological change}
+This reads as: $\alpha$ increases relative to $\beta$, shifting the reaction curve upwards. Again, this can either increase or decrease inequality, depending on $\alpha/\beta$ before the change.
+
+\subsection{Decreases in the real value of minimum wages}
+We will assume here that the minimum wage becomes binding for unskilled labor: why, after all, obtain training and forego wages if the resulting qualification will only decrease future earning power\footnote{Tell that to Arts Ph.D.'s At any rate, note that this reasoning \textbf{violates the explicit assumption that the labor supply does not react to changes in relative remuneration}. The change in inequality, however, does not depend on whether it's the skilled or unskilled labor that is supplied at minimum wage, merely which group is better off.} 
+
+With the above out of the way, we conclude that, if the minimum wage is binding, the firms optimization problem is now one-dimensional \[\max_S\, Y-w_S S - \bar{w_U}U \quad {} \]
+with  $w_S = \alpha\left(\frac{S}{Y}\right)^{\rho-1}$ as before, but the $w_U$ is no longer the marginal product of $U$; if the capital is not involved in production, $\left(\frac{Y}{U}\right)^\rho = \alpha \theta^\rho + \beta$,
+hence \[\bar{\omega} = \frac{w_S}{\bar{w}_U} = \frac{\alpha}{\bar{w}_U} \cdot \theta^{\rho-1} \left(\alpha\theta^\rho + \beta\right)^{\frac{1-\rho}{\rho}} \] 
+which is of course a decreasing function of $\bar{w}_U$; decreasing the minimum wage in this setting will increase the inequality.
+
+
+\subsection{Decreases in fertility among highly educated workers}
+$S$ decreases, $S/U$ decreases, we move along a curve to the left, inequality of pay increases if $\alpha>\beta$, decreases otherwise.
+
+% citations
+%\bibliographystyle{plain}
+%\bibliography{citations}
+
+\end{document}
